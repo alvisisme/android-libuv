@@ -1,4 +1,2 @@
-.vscode
-arm
-arm64
-libuv
+.vscode/
+out/
