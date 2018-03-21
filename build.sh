@@ -5,7 +5,7 @@ tar xvf libuv.tar.gz && \
 cd libuv-1.15.0 && \
 mkdir -p build　&& \
 mkdir -p out && \
-git clone https://github.com/bnoordhuis/gyp.git build/gyp && \
+git clone --depth 1 https://github.com/bnoordhuis/gyp.git build/gyp && \
 ./gyp_uv.py -Dtarget_arch=arm64 -DOS=android -f make-android && \
 make -C out &&
 cp -r include /home/dev/out/include && \

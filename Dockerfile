@@ -1,6 +1,6 @@
 # https://github.com/alvisisme/docker-android-ndk/blob/r13b/Dockerfile
 FROM alvisisme/docker-android-ndk:r13b
-
+LABEL maintainer="Alvis Zhao<alvisisme@gmail.com>"
 ENTRYPOINT []
 CMD ["/bin/bash","/home/dev/arm64/bin/build.sh"]
 VOLUME ["/home/dev/out"]
