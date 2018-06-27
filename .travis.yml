@@ -4,5 +4,5 @@ services:
   - docker
 
 script:
-  - ddocker build -t android-libuv-build .
+  - docker build -t android-libuv-build .
   - docker run --rm -v `pwd`/out:/home/out android-libuv-build
