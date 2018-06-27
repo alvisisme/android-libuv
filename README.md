@@ -1,6 +1,8 @@
 # Build libuv for android
 
-Build libuv(libuv.a) for android(arm64).
+[![Build Status](https://travis-ci.org/alvisisme/android-libuv.svg?branch=master)](https://travis-ci.org/alvisisme/android-libuv)
+
+Build libuv(libuv.a) for android(arm64-v8a).
 
 ## Build Environment
 
