@@ -1,16 +1,25 @@
 #!/bin/bash
-VERSION=1.21.0
-wget https://codeload.github.com/libuv/libuv/tar.gz/v$VERSION -O libuv.tar.gz
+LIBUV_VERSION=1.21.0
+
+CWD=$PWD
+mkdir -p $CWD/build
+
+cd $CWD/build
+if [ ! -f libuv.tar.gz ];then
+wget https://codeload.github.com/libuv/libuv/tar.gz/v$LIBUV_VERSION -O libuv.tar.gz
+fi
+if [ -d libuv ];then
+rm -rf libuv
+fi
 tar xvf libuv.tar.gz
-cd libuv-$VERSION
+mv libuv-$LIBUV_VERSION libuv
+cd libuv-$LIBUV_VERSION
 mkdir -p build
 mkdir -p out
 git clone --depth 1 https://github.com/bnoordhuis/gyp.git build/gyp
 ./gyp_uv.py -Dtarget_arch=arm64 -DOS=android -f make-android
 make -C out
-rm -rf /home/out/*
-cp -r include /home/out/include
-cp out/Debug/libuv.a /home/out/libuv.a
+cd $CWD
 
 
 

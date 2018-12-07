@@ -1,7 +1,14 @@
 all: env build
 
 env:
-	docker build -t android-libuv-build .
+	docker-compose build
 
 build:
-	docker run --rm -v `pwd`/out:/home/out android-libuv-build
+	docker-compose run android-build-libuv
+
+dist:
+	rm -rf dist/*
+	cp build/libuv/out/Debug/libuv.a dist/
+	cp -r build/libuv/include dist/include
+
+.PHONY: env build dist

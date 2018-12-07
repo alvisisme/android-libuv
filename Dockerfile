@@ -1,9 +1,10 @@
 FROM alvisisme/arm64-android-toolchain
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends binutils git
+LABEL maintainer=alvis<alvisisme@163.com>
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends binutils git
 
 ENV PLATFORM=android
 ENV CFLAGS="-D__ANDROID_API__=21"
-COPY build.sh /build.sh
-VOLUME ["/home/out"]
-CMD ["/bin/bash","/build.sh"]
+USER root
+WORKDIR /out
+VOLUME ["/out"]
+CMD ["/bin/bash","/out/build.sh"]

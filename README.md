@@ -20,5 +20,3 @@ Build libuv(libuv.a) for android(arm64-v8a).
   ```shell
   make
   ```
-
-  Check the **out** directory for output files.
