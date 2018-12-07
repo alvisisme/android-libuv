@@ -11,12 +11,16 @@ fi
 if [ -d libuv ];then
 rm -rf libuv
 fi
-tar xvf libuv.tar.gz
+if [ ! -d gyp ];then
+git clone --depth 1 https://github.com/bnoordhuis/gyp.git
+fi
+
+tar xf libuv.tar.gz
 mv libuv-$LIBUV_VERSION libuv
-cd libuv-$LIBUV_VERSION
-mkdir -p build
-mkdir -p out
-git clone --depth 1 https://github.com/bnoordhuis/gyp.git build/gyp
+mkdir -p libuv/build
+mkdir -p libuv/out
+cp -r gyp libuv/build/gyp
+cd libuv
 ./gyp_uv.py -Dtarget_arch=arm64 -DOS=android -f make-android
 make -C out
 cd $CWD
