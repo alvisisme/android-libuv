@@ -24,6 +24,3 @@ cd libuv
 ./gyp_uv.py -Dtarget_arch=arm64 -DOS=android -f make-android
 make -C out
 cd $CWD
-
-
-

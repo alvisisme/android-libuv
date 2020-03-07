@@ -1,9 +1,8 @@
 version: '2'
 services:
-  android-build-libuv:
+  libuv:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    image: android-build-libuv:v1.21.0
+    image: libuv-for-android-arm64-v8a
     volumes:
-      - .:/out
+      - ./build:/build

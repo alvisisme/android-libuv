@@ -1,22 +1,51 @@
-# Build libuv for android
+# libuv-for-android
 
-[![Build Status](https://travis-ci.org/alvisisme/android-libuv.svg?branch=master)](https://travis-ci.org/alvisisme/android-libuv)
+[![Build Status](https://img.shields.io/travis/com/alvisisme/android-libuv?style=flat-square)](https://travis-ci.com/alvisisme/android-libuv)
 
-Build libuv(libuv.a) for android(arm64-v8a).
+编译libuv至android平台arm64-v8a架构。
 
-## Build Environment
+本工程仅编译 libuv.a 静态库。
 
-* Ubuntu 16.04.4 LTS amd64
-* Docker version 17.12.1-ce, build 7390fc6
+## 目录
 
-## Source and Tools
+- [背景](#背景)
+- [安装](#安装)
+- [用法](#用法)
+- [维护人员](#维护人员)
+- [贡献参与](#贡献参与)
+- [许可](#许可)
 
+## 背景
+
+编译环境
+
+* Ubuntu 18.04.4 LTS amd64
 * [android-ndk-r13b](https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip)
 * [libuv v1.21.0](https://codeload.github.com/libuv/libuv/tar.gz/v1.15.0)
 * [gyp](https://github.com/bnoordhuis/gyp.git)
 
-## How to Build
+## 安装
 
-  ```shell
-  make
-  ```
+将编译成功后生成的**dist**目录下对应头文件和静态库引入。
+
+## 用法
+
+推荐使用 docker 和 docker-compose 进行编译
+
+```bash
+docker-compose up --build
+```
+
+编译后的文件位于 **build/libuv/out/Debug/libuv.a**
+
+## 维护人员
+
+[@Alvis Zhao](https://github.com/alvisisme)
+
+## 贡献参与
+
+欢迎提交PR。
+
+## 许可
+
+© 2020 Alvis Zhao
